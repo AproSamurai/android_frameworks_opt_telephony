@@ -672,7 +672,7 @@ public final class DcTracker extends DcTrackerBase {
                         radioTech);
              if (waitingApns.isEmpty()) {
                 notifyOffApnsOfAvailability(apnContext.getReason());
-		retValue = setupData(apnContext);
+		retValue = setupData(apnContext, radioTech);
 		if(!retValue) {
 			notifyNoData(DcFailCause.MISSING_UNKNOWN_APN, apnContext);
 		}
@@ -1054,7 +1054,7 @@ public final class DcTracker extends DcTrackerBase {
                 apnSetting = new ApnSetting(apnId, getOperatorNumeric(), null, null,
                                             null, null, null, null, null, null, null,
                                             RILConstants.SETUP_DATA_AUTH_PAP_CHAP, types,
-                                            PROPERTY_CDMA_IPPROTOCOL, PROPERTY_CDMA_ROAMING_IPPROTOCOL, true, 0);;
+                                            PROPERTY_CDMA_IPPROTOCOL, PROPERTY_CDMA_ROAMING_IPPROTOCOL, true, 0);
                 if (DBG) log("setupData: CDMA detected and apnSetting == null, use stubbed CDMA APN setting= " + apnSetting);
             } else {
                 if (DBG) log("setupData: return for no apn found!");
